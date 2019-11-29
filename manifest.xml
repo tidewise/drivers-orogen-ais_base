@@ -5,4 +5,5 @@
   <license>LGPLv2+</license>
   <depend package="base/cmake" />
   <depend package="base/orogen/types" />
+  <depend package="drivers/ais_base" />
 </package>
