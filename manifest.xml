@@ -1,0 +1,8 @@
+<package>
+  <description brief="Common typekit for drivers/ais_base">
+  </description>
+  <author>Sylvain Joyeu/sylvain.joyeux@tidewise.io</author>
+  <license>LGPLv2+</license>
+  <depend package="base/cmake" />
+  <depend package="base/orogen/types" />
+</package>
