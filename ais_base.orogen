@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+name 'ais_base'
+
+import_types_from 'base'
+
+using_library 'ais_base'
+import_types_from 'ais_base/Position.hpp'
+import_types_from 'ais_base/VesselInformation.hpp'
+import_types_from 'ais_base/VoyageInformation.hpp'
+type_export_policy :all
