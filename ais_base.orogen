@@ -9,3 +9,26 @@ import_types_from 'ais_base/Position.hpp'
 import_types_from 'ais_base/VesselInformation.hpp'
 import_types_from 'ais_base/VoyageInformation.hpp'
 type_export_policy :all
+
+
+task_context "AISAggregationTask" do
+    needs_configuration
+
+    property "filtered_mmsi", "/std/vector</int32_t>"
+
+    input_port("vessel_position_in", "/ais_base/Position")
+        .multiplexes
+        .needs_reliable_connection
+    input_port("vessel_information_in", "/ais_base/VesselInformation")
+        .multiplexes
+        .needs_reliable_connection
+    input_port("voyage_information_in", "/ais_base/VoyageInformation")
+        .multiplexes
+        .needs_reliable_connection
+
+    output_port "vessel_position", "/ais_base/Position"
+    output_port "vessel_information", "/ais_base/VesselInformation"
+    output_port "voyage_information", "/ais_base/VoyageInformation"
+
+    port_driven
+end
