@@ -5,6 +5,8 @@
 
 #include "ais_base/AISAggregationTaskBase.hpp"
 
+#include <unordered_map>
+
 namespace ais_base {
 
     /*! \class AISAggregationTask
@@ -27,8 +29,12 @@ namespace ais_base {
      */
     class AISAggregationTask : public AISAggregationTaskBase {
         friend class AISAggregationTaskBase;
+        using TimeTable = std::unordered_map<int32_t, base::Time>;
 
     protected:
+        std::array<TimeTable, 3> m_tables;
+        std::vector<int32_t> m_mmsi_filter;
+
     public:
         /** TaskContext constructor for AISAggregationTask
          * \param name Name of the task. This name needs to be unique to make it
